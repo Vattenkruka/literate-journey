@@ -45,24 +45,48 @@ public class LuhnAlgorithm {
             everyOtherDigit = !everyOtherDigit;
         }
         System.out.println(sumOfDigits);
+
         return (sumOfDigits % 10 == 0);
     }
 
+    public int computingCheckDigit() {
+        int sumOfDigits = 0;
+        boolean everyOtherDigit = true;
+        for (int i = userCardNo.length() - 2; i >= 0; i--) {
+            int digit = Integer.parseInt(userCardNo.substring(i, i + 1));
 
-    public int getLastDigitOfCardNo(){
-        int lastDigit = Integer.parseInt(userCardNo.substring(userCardNo.length()-1));
+            if (everyOtherDigit) {
+                digit *= 2;
+                if (digit > 9) {
+                    int sum = 0;
+                    sum += digit / 10;
+                    sum += digit % 10;
+
+                }
+            }
+            sumOfDigits += digit;
+            everyOtherDigit = !everyOtherDigit;
+        }
+
+        return (10 - (sumOfDigits % 10));
+
+    }
+
+    public int getLastDigitOfCardNo() {
+        int lastDigit = Integer.parseInt(userCardNo.substring(userCardNo.length() - 1));
         return lastDigit;
     }
 
-    public String checkSumValidation(){
-        if(luhnCalculator()){
+    public String checkSumValidation() {
+        if (getLastDigitOfCardNo() == computingCheckDigit()) {
             return "Valid";
+        } else {
+            return "Not valid";
         }
-        return "Not valid";
     }
 
-    public String checkLengthOfUserInput(){
-        if(lengthOfUserInput() == 16){
+    public String checkLengthOfUserInput() {
+        if (lengthOfUserInput() == 16) {
             return "(Credit card)";
         }
         return "(Not valid format for credit card)";
