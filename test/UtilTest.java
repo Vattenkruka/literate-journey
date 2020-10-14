@@ -4,20 +4,28 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class UtilTest {
-    LuhnAlgorithm luhnAlgorithm = new LuhnAlgorithm();
 
     // tests checkLengthOfUserInput()
     @Test
     void isInputCreditCardLengthSixteen(){
-     //  assertEquals(10, 50);
+        String userCardNo = "1234561234561234";
+        String result = LuhnAlgorithm.checkLengthOfUserInput(userCardNo);
+        assertTrue(result == userCardNo.length() + " (Credit card)");
     }
 
+
+/*
     // test if input is a string. userInput()
     @Test
     void isString(){
+        luhnAlgorithm.setUserCardNo("");
+        assertNotEquals("", luhnAlgorithm.userInput());
+        //assertFalse(luhnAlgorithm.userInput().isEmpty()));
 
     }
 
+
+ */
     // tests if checksum is valid. checksumValidation()
     @Test
     void isChecksumValid(){

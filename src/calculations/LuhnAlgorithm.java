@@ -1,28 +1,8 @@
 package calculations;
 
-import java.util.InputMismatchException;
-import java.util.Scanner;
-
 public class LuhnAlgorithm {
 
-    public static String userCardNo;
-
-    //userInput --> creditCardNumber
-    public void userInput() {
-        Scanner input = new Scanner(System.in);
-        try {
-            userCardNo = input.nextLine();
-            getLastDigitOfCardNo();
-        } catch (NumberFormatException ex) {
-            System.out.println(ex.getMessage());
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        } finally {
-            input.close();
-        }
-    }
-
-    public static boolean luhnCalculator() {
+    public static boolean luhnCalculator(String userCardNo) {
         int sumOfDigits = 0;
         boolean everyOtherDigit = false;
         for (int i = userCardNo.length() - 1; i >= 0; i--) {
@@ -45,7 +25,7 @@ public class LuhnAlgorithm {
         return (sumOfDigits % 10 == 0);
     }
 
-    public int computingCheckDigit() {
+    public static int computingCheckDigit(String userCardNo) {
         int sumOfDigits = 0;
         boolean everyOtherDigit = true;
         for (int i = userCardNo.length() - 2; i >= 0; i--) {
@@ -68,24 +48,23 @@ public class LuhnAlgorithm {
 
     }
 
-    public int getLastDigitOfCardNo() {
+    public static int getLastDigitOfCardNo(String userCardNo) {
         int lastDigit = Integer.parseInt(userCardNo.substring(userCardNo.length() - 1));
         return lastDigit;
     }
 
-    public String checkSumValidation() {
-        if (getLastDigitOfCardNo() == computingCheckDigit()) {
+    public static String checkSumValidation(String userCardNo) {
+        if (getLastDigitOfCardNo(userCardNo) == computingCheckDigit(userCardNo)) {
             return "Valid";
         } else {
             return "Not valid";
         }
     }
 
-    public String checkLengthOfUserInput() {
+    public static String checkLengthOfUserInput(String userCardNo) {
         if (userCardNo.length() == 16) {
             return userCardNo.length() + " (Credit card)";
         }
         return userCardNo.length() + " (Not valid format for credit card)";
     }
-
 }
