@@ -49,6 +49,7 @@ public class LuhnAlgorithm {
     }
 
     public static int getLastDigitOfCardNo(String userCardNo) {
+
         int lastDigit = Integer.parseInt(userCardNo.substring(userCardNo.length() - 1));
         return lastDigit;
     }
