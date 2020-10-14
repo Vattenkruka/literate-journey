@@ -2,7 +2,7 @@ package calculations;
 
 public class LuhnAlgorithm {
 
-    public static boolean luhnCalculator(String userCardNo) {
+    public static boolean calculateLuhnAlgorithm(String userCardNo) {
         int sumOfDigits = 0;
         boolean everyOtherDigit = false;
         for (int i = userCardNo.length() - 1; i >= 0; i--) {
@@ -25,7 +25,7 @@ public class LuhnAlgorithm {
         return (sumOfDigits % 10 == 0);
     }
 
-    public static int computingCheckDigit(String userCardNo) {
+    public static int computeCheckDigit(String userCardNo) {
         int sumOfDigits = 0;
         boolean everyOtherDigit = true;
         for (int i = userCardNo.length() - 2; i >= 0; i--) {
@@ -54,8 +54,8 @@ public class LuhnAlgorithm {
         return lastDigit;
     }
 
-    public static String checkSumValidation(String userCardNo) {
-        if (getLastDigitOfCardNo(userCardNo) == computingCheckDigit(userCardNo)) {
+    public static String validateCheckDigit(String userCardNo) {
+        if (getLastDigitOfCardNo(userCardNo) == computeCheckDigit(userCardNo)) {
             return "Valid";
         } else {
             return "Not valid";
