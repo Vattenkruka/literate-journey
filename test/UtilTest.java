@@ -48,7 +48,6 @@ class UtilTest {
 
     }
 
-
     // Tests if the expected check digit is valid. computingCheckDigit()
     @Test
     void isExpectedDigitValid(){
