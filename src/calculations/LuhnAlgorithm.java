@@ -13,14 +13,13 @@ public class LuhnAlgorithm {
         try {
             userCardNo = input.nextLine();
             getLastDigitOfCardNo();
-        } catch (InputMismatchException ime) {
-            System.out.println(ime.getMessage());
+        } catch (NumberFormatException ex) {
+            System.out.println(ex.getMessage());
         } catch (Exception e) {
             System.out.println(e.getMessage());
         } finally {
             input.close();
         }
-
     }
 
     public int lengthOfUserInput() {
@@ -48,6 +47,7 @@ public class LuhnAlgorithm {
         System.out.println(sumOfDigits);
         return (sumOfDigits % 10 == 0);
     }
+
 
     public int getLastDigitOfCardNo(){
         int lastDigit = Integer.parseInt(userCardNo.substring(userCardNo.length()-1));
