@@ -1,5 +1,3 @@
-package main;
-
 import calculations.LuhnAlgorithm;
 
 public class Main {
@@ -13,7 +11,7 @@ public class Main {
         System.out.println(" ");
 
         System.out.println("Checksum: " + luhnAlgorithm.checkSumValidation());
-        System.out.println("Digits: " + luhnAlgorithm.lengthOfUserInput() + " " + luhnAlgorithm.checkLengthOfUserInput());
+        System.out.println("Digits: " + " " + luhnAlgorithm.checkLengthOfUserInput());
 
     }
 

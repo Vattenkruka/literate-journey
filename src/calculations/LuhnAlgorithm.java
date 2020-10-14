@@ -22,10 +22,6 @@ public class LuhnAlgorithm {
         }
     }
 
-    public int lengthOfUserInput() {
-        return userCardNo.length();
-    }
-
     public static boolean luhnCalculator() {
         int sumOfDigits = 0;
         boolean everyOtherDigit = false;
@@ -86,10 +82,10 @@ public class LuhnAlgorithm {
     }
 
     public String checkLengthOfUserInput() {
-        if (lengthOfUserInput() == 16) {
-            return "(Credit card)";
+        if (userCardNo.length() == 16) {
+            return userCardNo.length() + " (Credit card)";
         }
-        return "(Not valid format for credit card)";
+        return userCardNo.length() + " (Not valid format for credit card)";
     }
 
 }
