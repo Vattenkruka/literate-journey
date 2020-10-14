@@ -21,22 +21,21 @@ class UtilTest {
     }
 
 
-/*
-    // test if input is a string. userInput()
+    // tests if input is a string. userInput()
     @Test
-    void isString(){
-        luhnAlgorithm.setUserCardNo("");
-        assertNotEquals("", luhnAlgorithm.userInput());
-        //assertFalse(luhnAlgorithm.userInput().isEmpty()));
+    void isChecksumNotValid(){
+        String userCardNO = "125151";
+        String result = LuhnAlgorithm.checkSumValidation(userCardNO);
+        assertTrue(result == "Not valid");
 
     }
 
-
- */
     // tests if checksum is valid. checksumValidation()
     @Test
     void isChecksumValid(){
-
+    String userCardNO = "4242424242424242";
+    String result = LuhnAlgorithm.checkSumValidation(userCardNO);
+    assertTrue(result != "Not valid");
     }
 
 
