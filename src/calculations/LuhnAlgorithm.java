@@ -5,13 +5,14 @@ import java.util.Scanner;
 
 public class LuhnAlgorithm {
 
+    private String userCardNo;
+
     //userInput --> creditCardNumber
     public void userInput() {
         Scanner input = new Scanner(System.in);
         try {
             System.out.println("Please enter your credit card number: ");
-            int userDigits;
-            userDigits = input.nextInt();
+            userCardNo = input.nextLine();
 
         } catch (InputMismatchException ime) {
             System.out.println(ime.getMessage());
@@ -23,4 +24,9 @@ public class LuhnAlgorithm {
         }
 
     }
+
+    public int lengthOfUserInput() {
+        return userCardNo.length();
+    }
+    
 }
