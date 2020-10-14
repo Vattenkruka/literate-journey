@@ -20,6 +20,16 @@ class UtilTest {
         assertFalse(result == userCardNo.length() + " (Not valid format for credit card)");
     }
 
+    @Test
+    void isLastDigitOfCard(){
+        String userCardNo = "123456789";
+        int result = LuhnAlgorithm.getLastDigitOfCardNo(userCardNo);
+        assertEquals(result, 9);
+
+    }
+
+    @Test
+    void isLastDigitOfCardANumber(){}
 
     // tests if input is a string. userInput()
     @Test
