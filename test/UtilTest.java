@@ -38,15 +38,39 @@ class UtilTest {
     assertTrue(result != "Not valid");
     }
 
-    // tests if the expected  check digit is valid. computingCheckDigit()
+
     @Test
-    void isExpectedValid(){
+    void isExpectedDigitInvalid() {
+        String userCardNo = "4242424242424244";
+        int result = LuhnAlgorithm.computingCheckDigit(userCardNo);
+        assertNotEquals(result, 4);
 
     }
-    // Tests the validation of the luhn formula for credit card validation. luhnCalculator()
-    @Test
-    void isValidationValid(){
 
+
+    // Tests if the expected check digit is valid. computingCheckDigit()
+    @Test
+    void isExpectedDigitValid(){
+        String userCardNo = "4242424242424242";
+        int result = LuhnAlgorithm.computingCheckDigit(userCardNo);
+        assertEquals(2, result);
+
+
+    }
+    // Tests the Luhn formula for credit card validation. luhnCalculator()
+    @Test
+    void isLuhnCalculationValid(){
+        String userCardNo = "4242424242424242";
+        boolean result = LuhnAlgorithm.luhnCalculator(userCardNo);
+        assertTrue(result);
+
+    }
+
+    @Test
+    void isLuhnCalculationInvalid(){
+        String userCardNo = "1234561234561234";
+        boolean result = LuhnAlgorithm.luhnCalculator(userCardNo);
+        assertFalse(result);
     }
 
 }
