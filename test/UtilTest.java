@@ -13,6 +13,13 @@ class UtilTest {
         assertTrue(result == userCardNo.length() + " (Credit card)");
     }
 
+    @Test
+    void isInputCreditCardLengthLess(){
+        String userCardNo = "123456789";
+        String result = LuhnAlgorithm.checkLengthOfUserInput(userCardNo);
+        assertFalse(result == userCardNo.length() + " (Not valid format for credit card)");
+    }
+
 
 /*
     // test if input is a string. userInput()
